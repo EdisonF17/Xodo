@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pastel 🍰</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #e0cbac;
+      }
+      h1 {
+        position: absolute;
+        top: 5px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .container {
+        width: 400px;
+        height: 400px;
+        background-color: #fefefece;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 8px;
+        box-shadow: 0 20px 45px rgba(120, 76, 10, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cake {
+        width: 100%;
+        position: absolute;
+        bottom: 60px;
+      }
+      .bottom-layer,
+      .top-layer,
+      .middle-layer {
+        height: 80px;
+        width: 240px;
+        position: relative;
+        margin: auto;
+        background-repeat: repeat;
+        background-size: 100% 100%, 60px 100px;
+        background-position: 28px 0;
+        background-image: linear-gradient(
+            transparent 50px,
+            #e3a953 50px,
+            #e3a953 60px,
+            transparent 60px
+          ),
+          radial-gradient(circle at 30px 5px, #713e16 30px, #eac284 31px);
+      }
+      .middle-layer {
+        transform: scale(0.85);
+        top: 72px;
+        animation: rise-1 2s forwards;
+      }
+      @keyframes rise-1 {
+        100% {
+          top: 7px;
+        }
+      }
+      .top-layer {
+        transform: scale(0.7);
+        top: 144px;
+        animation: rise-2 2s 2s forwards;
+      }
+      @keyframes rise-2 {
+        100% {
+          top: 26px;
+        }
+      }
+      .candle {
+        background: repeating-linear-gradient(
+          45deg,
+          #fd3018 0,
+          #fd3018 5px,
+          #ffa89e 5px,
+          #ffa89e 10px
+        );
+        height: 45px;
+        width: 15px;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        animation: rise-3 1s 4s forwards;
+      }
+      @keyframes rise-3 {
+        100% {
+          bottom: 202px;
+        }
+      }
+      .candle:after {
+        content: "";
+        position: absolute;
+        height: 16px;
+        width: 16px;
+        background-color: #ffda54;
+        border-radius: 0 50% 50% 50%;
+        transform: scale(0) rotate(45deg);
+        bottom: 50px;
+        left: -0.5px;
+        animation: flame 1.5s 5s forwards;
+      }
+      @keyframes flame {
+        100% {
+          transform: scale(1) rotate(45deg);
+        }
+      }
+      .par {
+        position: absolute;
+        bottom: 5px;
+        font-size: 10px;
+      }
+      .no-mostrar {
+        display: none;
+      }
+    </style>
+
+    <script type="module">
+      const $ = (e) => document.getElementById(e);
+      const $title = $("title");
+      const $par = $("par");
+      const $heartTitle = $("title-heart");
+      const $heartTitle2 = $("title-heart2");
+
+      setTimeout(() => {
+        $title.classList.remove("no-mostrar");
+        setTimeout(() => {
+          $heartTitle.classList.remove("no-mostrar");
+          $heartTitle2.classList.remove("no-mostrar");
+          setTimeout(() => {
+            $par.classList.remove("no-mostrar");
+          }, 700);
+        }, 700);
+      }, 7600);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title" class="no-mostrar">
+        <span id="title-heart2" class="no-mostrar">❤️</span> Feliz cumpleaños
+        Mi Amor <span id="title-heart" class="no-mostrar">❤️</span>
+      </h1>
+      <div class="cake">
+        <div class="candle"></div>
+        <div class="top-layer"></div>
+        <div class="middle-layer"></div>
+        <div class="bottom-layer"></div>
+      </div>
+      <p id="par" class="par no-mostrar">
+        Sabes que te amo, pero no te puedo ver :)
+      </p>
+    </div>
+  </body>
+</html>
